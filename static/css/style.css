@@ -1,0 +1,55 @@
+
+
+
+/*  removing non-sense padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* Container ka size (10px x 5px bahut chhota tha, dikhega hi nahi, isliye 50px kiya hai) */
+.logo {
+    width: 200px;
+    height: auto;
+}
+
+/* Yeh line image ko div ke andar perfectly fit aur chhota karegi */
+.logo img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Customising navigation bar*/
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #FFFFFF;
+    background-color: rgb(141, 213, 226);
+    padding: 7px 60px;
+}
+
+.nav-links{
+    display: flex;
+    gap: 2rem;
+    font-family: 'Prociono', serif;
+    font-weight: bold;
+    font-size: large;
+}
+
+nav a{
+    text-decoration: none;
+    color: #f7fafc;
+}
+
+nav a:hover {
+    color : rgb(227, 245, 72)
+}
+
+body{
+    background-color: #f7fafc;
+}
+
