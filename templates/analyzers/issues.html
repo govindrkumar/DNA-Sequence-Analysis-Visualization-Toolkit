@@ -1,42 +1,55 @@
+{% extends 'base.html' %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Issues</title>
-    
-    <link rel="icon" type="image/jpg" href="{% static 'images/dna.jpg' %}">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Prociono&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="{% static 'css/style.css' %}"></head>
-<body>
-    <nav>
-        <div class="logo">
-            <img src="{%static 'images/logo.png' %}" alt="Bio-sequence">
-        </div>
-        <div class="nav-links">
-            <a href="{%url 'index'%}">
-                Home
-            </a>
-            <a href="{%url 'about_page'%}">
-                About
-            </a>
 
-            <a href="{%url 'analyse_page'%}">
-                Analyze
-            </a>
 
-            <a href="{%url 'provider_page'%}">
-                Providers
-            </a>
+{% block title %}Biseq Analyzer{% endblock %}
 
-            <a href="{%url 'issues_page'%}">
-                Issues
-            </a>
-        </div>
-    </nav>
+{% block content %}
+    <!-- Aapka index page ka content yahan aayega -->
+     <br>
 
+    <div class="communicate">
+        
+        <form method="POST">
+            <h2 style="
+            display: flex; justify-content: center;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            border: 1px solid lightblue; background-color: rgb(192, 233, 192);
+
+            ">
+                Issue Form
+            </h2>
+            <br>
+            {% csrf_token %}
+            <div>
+                <label>
+                    Name : 
+                </label>
+                {{ form.name }}
+            </div>
+
+            <div>
+                <label>
+                    Category of Issue :
+                </label>
+                {{form.issue_type}}
+            </div>
+
+            <div>
+                <label>
+                    Issue Detail :
+                </label><br>
+                {{ form.issue_detail }}
+            </div>
+
+            <button type="submit" style="margin-top: 10px; padding: 5px 15px;">
+                Submit
+            </button>
+
+       </form>
+        
     </div>
-</body>
-</html>
+
+    
+
+{% endblock %}

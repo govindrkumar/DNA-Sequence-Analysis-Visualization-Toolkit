@@ -1,42 +1,12 @@
+{% extends 'base.html' %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>About</title>
+
+
+{% block title %}Biseq About{% endblock %}
+
+{% block content %}
+    <!-- Aapka index page ka content yahan aayega -->
+
     
-    <link rel="icon" type="image/jpg" href="{% static 'images/dna.jpg' %}">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Prociono&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="{% static 'css/style.css' %}"></head>
-<body>
-    <nav>
-        <div class="logo">
-            <img src="{%static 'images/logo.png' %}" alt="Bio-sequence">
-        </div>
-        <div class="nav-links">
-            <a href="{%url 'index'%}">
-                Home
-            </a>
-            <a href="{%url 'about_page'%}">
-                About
-            </a>
 
-            <a href="{%url 'analyse_page'%}">
-                Analyze
-            </a>
-
-            <a href="{%url 'provider_page'%}">
-                Providers
-            </a>
-
-            <a href="{%url 'issues_page'%}">
-                Issues
-            </a>
-        </div>
-    </nav>
-
-    </div>
-</body>
-</html>
+{% endblock %}
