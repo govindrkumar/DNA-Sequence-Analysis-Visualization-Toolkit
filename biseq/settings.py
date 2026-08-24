@@ -24,8 +24,11 @@ SECRET_KEY = 'django-insecure-&fltwub_sv7@j!vg1hbk+&+5%&no+k#pbm)+dfn1@bb2jyw!&%
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    "localhost",
+    "127.0.0.1",
+    "dna-sequence-analysis-visualization.vercel.app",
+]
 
 
 # Application definition
