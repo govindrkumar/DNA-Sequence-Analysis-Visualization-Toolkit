@@ -23,3 +23,6 @@ class SupportTicketForm(forms.ModelForm):
                 }
             )
         }
+
+class SequenceUploadForm(forms.Form):
+    file = forms.FileField()

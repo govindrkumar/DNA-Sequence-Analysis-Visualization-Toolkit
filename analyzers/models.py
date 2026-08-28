@@ -22,3 +22,7 @@ class SupportTicket(models.Model):
     def __str__(self):
         return f"{self.name} - {self.issue_type}"
 
+
+class UploadedSequence(models.Model):
+    file = models.FileField(upload_to = 'sequences/')
+    uploaded_at = models.DateTimeField(auto_now_add = True)

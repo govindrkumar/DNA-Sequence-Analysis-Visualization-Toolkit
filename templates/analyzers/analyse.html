@@ -6,7 +6,54 @@
 
 {% block content %}
     <!-- Aapka index page ka content yahan aayega -->
+     <div class="file_upload">
+        <section class="heading">
+            <h1>
+                Upload Your File 
+            </h1><br>
+        </section>
 
-    
+        <section class="main-section">
+            
+            <form method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                Chose your File <br>
+                {{ form.file }}
+                <br>
+
+                <button type="submit" style="margin-top: 10px; padding: 5px 15px;">
+                    Submit
+                </button>
+
+
+            </form>
+        </section>
+     </div>
+
+    <style>
+        .file_upload{
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            justify-content: center;
+            border: 1px solid black;
+            box-shadow: 0 4px 10px grey;
+            padding: 20px;
+            width: fit-content;
+            margin: auto;
+            margin-top: 2em;
+        }
+
+        .file_upload h1{
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 2em;
+        }
+
+        .main-section form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+    </style>
 
 {% endblock %}

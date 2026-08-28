@@ -10,6 +10,7 @@
 .logo {
     width: 200px;
     height: auto;
+    background-color: rgb(24, 34, 179);
 }
 
 /* Yeh line image ko div ke andar perfectly fit aur chhota karegi */
@@ -25,7 +26,7 @@ nav {
     justify-content: space-between;
     align-items: center;
     color: #FFFFFF;
-    background-color: rgb(141, 213, 226);
+    background-color: #103bc9;
     padding: 7px 60px;
 }
 
