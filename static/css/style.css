@@ -189,28 +189,62 @@ body{
 
 
 .main-content {
-                display: flex;
-                flex-direction: column;
-                align-items: flex-end;
-                margin-right: 50px;
-                margin-top: 300px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+    width: 100%;
+    min-height: calc(100vh - 80px);
+    background-color: lightskyblue;
+
+    padding: 40px 5vw;
+    gap: 5vw;
+    margin: 0;
 }
 
+.video-player {
+    width: 55vw;
+    flex-shrink: 0;
+}
+
+.video-playing {
+    width: 100%;
+}
+
+.video-playing iframe {
+    display: block;
+    width: 55vw;
+    height: calc(55vw * 9 / 16);
+    border: none;
+}
+
+.some-shit {
+    width: 35vw;
+    text-align: center;
+    flex-shrink: 0;
+}
+
+.some-shit h1 {
+    margin-bottom: 20px;
+}
+
+.some-shit h2 {
+    margin-bottom: 30px;
+}
 
 .analysis-button {
-                display: inline-block;
-                border: 2px solid black;
-                background-color: rgb(235, 235, 92);
-                padding: 10px;
-                text-decoration: none;
-                transition: transform 0.2s ease-in-out;
+    display: inline-block;
+    border: 2px solid black;
+    background-color: rgb(235, 235, 92);
+    padding: 10px;
+    text-decoration: none;
+    transition: transform 0.2s ease-in-out;
 }
 
 .analysis-button:hover {
-                transform: scale(1.1);
-            }
-
-
+    transform: scale(1.1);
+}
 
 body {
     min-height: 100vh;

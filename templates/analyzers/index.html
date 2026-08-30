@@ -5,27 +5,37 @@
 {% block title %}Biseq Analyzer{% endblock %}
 
 {% block content %}
-    <div class="main-content">
-        <!--Main heading section, needs style.css changes-->
+<div class="main-content">
+
+    <div class="video-player">
+        <div class="video-playing">
+            <iframe
+                src="https://www.youtube.com/embed/o_-6JXLYS-k?autoplay=1&mute=1&loop=1&playlist=o_-6JXLYS-k&playsinline=1"
+                title="Background video"
+                frameborder="0"
+                allow="autoplay; encrypted-media"
+                referrerpolicy="strict-origin-when-cross-origin">
+            </iframe>
+        </div>
+    </div>
+
+    <div class="some-shit">
         <section class="h1">
-            <h1>Analysis of DNA Sequence</h1><br>
+            <h1>Analysis of DNA Sequence</h1>
         </section>
 
         <section class="h2">
-            <!--Condition has been set.-->
-            <h2>We support .fasta and .gb file.</h2><br>
+            <h2>We support .fasta and .gb file.</h2>
         </section>
 
         <section class="h3">
-            <h3>
-                <!--Button which takes it to analysis page-->
-                <a class="analysis-button" href="{% url 'analyse_page' %}">
-                    Run Analysis →
-                </a>
-            </h3>
+            <a class="analysis-button" href="{% url 'analyse_page' %}">
+                Run Analysis →
+            </a>
         </section>
-
     </div>
+
+</div>
      
 
 
