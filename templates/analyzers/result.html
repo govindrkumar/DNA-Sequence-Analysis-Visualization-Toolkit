@@ -6,67 +6,29 @@
 
 
 {% block content %}
+
     <div class="soma-section">
+        <!--Second Navigation Bar-->
         <section class="virtue">
             <nav class="analyser-nav">
-                <a href="">Overview</a>
-                <a href="">Statistics</a>
-                <a href="">Translation</a>
-                <a href="">ORFs</a>
-                <a href="">Comparison</a>
-                <a href="">History</a>
+                <a class="overview">Overview</a>
+                <a class="stats">Statistics</a>
+                <a class="translation">Translation</a>
+                <a class="orfs">ORFs</a>
+                <a class="comparison">Comparison</a>
+                <a class="history">History</a>
             </nav>
         </section>
 
-        
-        <div class="main-content-area">
+        <!--Main Dashboard Section -->
+        <div class="main-contention-area">
+            <div class="record-read">
+                
+            </div>
             
         </div>
     </div>
 
-    <style>
-    
-    .soma-section {
-        display: flex;
-        width: 100%;
-    }
-
-    .virtue {       
-        width: 200px; 
-        flex-shrink: 0;
-    }
-
-.analyser-nav {
-    display: flex !important;
-    flex-direction: column;
-
-    justify-content: flex-start !important;
-    align-items: flex-start !important;
-
-    gap: 40px !important;
-
-    font-family: 'Prociono', serif;
-    font-weight: bold;
-    font-size: large;
-
-    position: fixed;
-    top: 80px;
-    left: 0;
-    bottom: 0;
-    width: 200px;
-
-    background-color: #0b5bb6;
-    padding: 30px 20px;
-    z-index: 10;
-}
-
-    
-    .main-content-area {
-        margin-left: 200px; 
-        padding: 20px;
-        flex-grow: 1;
-    }
-</style>
 
 {% endblock %}
 

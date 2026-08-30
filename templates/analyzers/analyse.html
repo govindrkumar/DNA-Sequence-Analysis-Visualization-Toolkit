@@ -1,59 +1,70 @@
 {% extends 'base.html' %}
 {% load static %}
 
-
 {% block title %}Biseq Analyzer{% endblock %}
 
 {% block content %}
-    <!-- Aapka index page ka content yahan aayega -->
-     <div class="file_upload">
-        <section class="heading">
-            <h1>
-                Upload Your File 
-            </h1><br>
-        </section>
 
-        <section class="main-section">
-            
-            <form method="POST" enctype="multipart/form-data">
-                {% csrf_token %}
-                Chose your File <br>
+<div class="file_upload">
+
+    <section class="heading">
+        <h1>Upload Your File</h1>
+    </section>
+
+    <section class="main-sectionioning">
+
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+
+            <div class="upload-box">
+
+                <div class="upload-icon">
+                    ↑
+                </div>
+
+                <label for="id_file" class="browse-button">
+                    Browse
+                </label>
+
                 {{ form.file }}
-                <br>
 
-                <button type="submit" style="margin-top: 10px; padding: 5px 15px;">
-                    Submit
-                </button>
+                <p>drop a file here</p>
+                <p id="file-name">No file selected</p>
 
+                <small>
+                    <span>*</span>File supported .fasta & .genbank
+                </small>
 
-            </form>
-        </section>
-     </div>
+            </div>
 
-    <style>
-        .file_upload{
-            display: flex;
-            align-items: center;
-            flex-direction: column;
-            justify-content: center;
-            border: 1px solid black;
-            box-shadow: 0 4px 10px grey;
-            padding: 20px;
-            width: fit-content;
-            margin: auto;
-            margin-top: 2em;
-        }
+            <button type="submit" class="submit-button">
+                Submit
+            </button>
 
-        .file_upload h1{
-            font-family: Arial, Helvetica, sans-serif;
-            font-size: 2em;
-        }
+        </form>
 
-        .main-section form {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-    </style>
+        <script>
+            const fileInput = document.getElementById("id_file");
+            const fileName = document.getElementById("file-name");
+
+            fileInput.addEventListener("change", function () {
+            if (this.files.length > 0) {
+                fileName.textContent = this.files[0].name;
+                } else {
+                fileName.textContent = "No file selected";
+            }
+    });
+</script>
+
+<style>
+    #file-name{
+        font-weight: bold;
+        color: black;
+    }
+</style>
+
+    </section>
+
+</div>
 
 {% endblock %}

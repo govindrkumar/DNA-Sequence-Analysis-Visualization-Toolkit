@@ -55,11 +55,218 @@ body{
     justify-content: center;
     align-items: center;
     width: 100%;
+    box-shadow: grey;
 }
 
 .communicate form {
-    padding: 20px;
+    padding: 40px;
     border: 2px solid black;
     background-color: rgb(241, 241, 95);
+    border-radius: 20px;
+}
+/* It's from analyse.html page css style tag*/
+.file_upload {
+    max-width: 900px;
+    margin: 50px auto;
+    padding: 40px;
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
 }
 
+.heading {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.heading h1 {
+    margin: 0;
+}
+
+.main-sectionioning {
+    display: flex;
+    justify-content: center;
+}
+
+.main-sectionioning form {
+    width: 100%;
+}
+
+.upload-box {
+    border: 2px dashed rgb(43, 156, 226);
+    border-radius: 10px;
+    padding: 60px 30px;
+    text-align: center;
+}
+
+.upload-icon {
+    font-size: 70px;
+    color: rgb(43, 156, 226);
+    margin-bottom: 20px;
+}
+
+.browse-button {
+    display: inline-block;
+    padding: 10px 55px;
+    background-color: rgb(43, 156, 226);
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 25px;
+    cursor: pointer;
+}
+
+.upload-box input[type="file"] {
+    display: none;
+}
+
+.upload-box p {
+    color: #aaa;
+    font-size: 18px;
+    margin: 20px 0;
+}
+
+.upload-box small {
+    font-size: 16px;
+}
+
+.upload-box small span {
+    color: red;
+}
+
+.submit-button {
+    display: block;
+    margin: 20px auto 0;
+    padding: 8px 25px;
+    background-color: rgb(43, 92, 226);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+    
+/* It is from result.html style tag */
+    .soma-section {
+        display: flex;
+        width: 100%;
+    }
+
+    .virtue {       
+        width: 200px; 
+        flex-shrink: 0;
+    }
+
+.analyser-nav {
+    display: flex !important;
+    flex-direction: column;
+
+    justify-content: flex-start !important;
+    align-items: flex-start !important;
+
+    gap: 40px !important;
+
+    font-family: 'Prociono', serif;
+    font-weight: bold;
+    font-size: large;
+
+    position: fixed;
+    top: 80px;
+    left: 0;
+    bottom: 0;
+    width: 200px;
+
+    background-color: #0b5bb6;
+    padding: 30px 20px;
+    z-index: 10;
+}
+
+    
+.main-contention-area {
+        margin-left: 200px; 
+        padding: 20px;
+        flex-grow: 1;
+}
+
+
+.main-content {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-end;
+                margin-right: 50px;
+                margin-top: 300px;
+}
+
+
+.analysis-button {
+                display: inline-block;
+                border: 2px solid black;
+                background-color: rgb(235, 235, 92);
+                padding: 10px;
+                text-decoration: none;
+                transition: transform 0.2s ease-in-out;
+}
+
+.analysis-button:hover {
+                transform: scale(1.1);
+            }
+
+
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+footer {
+  text-align: center;
+  padding: 3px;
+  background-color: rgb(194, 186, 186);
+  color: rgb(15, 15, 15);
+  margin-top: auto;
+}
+
+/* CSS for Providers.html */
+.providers-container {
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 30px;
+    border-radius: 15px;
+    border: 1px solid black;
+    background-color: beige;
+}
+.providers-container h4{
+    font-family: monospace;
+    font-style: italic;
+}
+.providers-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+.provider-card:hover {
+    transform: scale(1.01);
+}
+
+.provider-card {
+    padding: 25px;
+    border-radius: 12px;
+    border: 1px solid black;
+    background-color: lightpink;
+}
+
+.provider-card:last-child {
+    grid-column: 1 / -1;
+    justify-self: center;
+}
+
+/* CSS related to about.html */
+.about-container{
+    max-width: 700px;
+    margin: 40px auto;
+    padding: 30px;
+    border-radius: 15px;
+    border: 1px solid black;
+    background-color: beige;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-style: italic;
+}
