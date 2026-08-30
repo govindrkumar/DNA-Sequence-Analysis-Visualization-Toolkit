@@ -11,7 +11,7 @@
         <!--Second Navigation Bar-->
         <section class="virtue">
             <nav class="analyser-nav">
-                <a class="overview">Overview</a>
+                <a class="overview active-link">Overview</a>
                 <a class="stats">Statistics</a>
                 <a class="translation">Translation</a>
                 <a class="orfs">ORFs</a>
@@ -22,12 +22,61 @@
 
         <!--Main Dashboard Section -->
         <div class="main-contention-area">
-            <div class="record-read">
-                
-            </div>
+            <div class="overview-class" id="card-1">Hello 1</div>
+            <div class="stats-class" id="card-2">Hello 2</div>
+            <div class="translation-class" id="card-3">hello 3</div>
+            <div class="orf-class" id="card-4">Hello 4</div>
+            <div class="comparison-class" id="card-5">Hello 5</div>
+            <div class="history-class" id="card-6">Hello 6</div>
+
+
             
         </div>
     </div>
+
+<script>
+        // 1. Saare navigation links ko select kiya
+        const navLinks = document.querySelectorAll('.analyser-nav a');
+
+        // 2. Saare content cards (divs) ko select kiya
+        const cards = document.querySelectorAll('.main-contention-area div');
+
+        // Default setup: Pehle card (Overview) ko chhod kar baaki sabko chhipa dete hain
+        for (let i = 1; i < cards.length; i++) {
+            cards[i].classList.add('hidden');
+            }
+
+        // 3. Har ek nav link par click event lagana
+        navLinks.forEach((link, index) => {
+        link.addEventListener('click', () => {
+        
+        // 4. Sabse pehle SARE cards ko chhipa do (hidden class add karke)
+        cards.forEach(card => card.classList.add('hidden'));
+        
+        // 5. Ab sirf us card ko dikhao jiska index clicked link se match karta hai
+        cards[index].classList.remove('hidden');
+        
+    });
+});
+
+navLinks.forEach((link, index) => {
+    link.addEventListener('click', () => {
+        
+        // --- PURANA CARDS WALA LOGIC ---
+        cards.forEach(card => card.classList.add('hidden'));
+        cards[index].classList.remove('hidden');
+        
+        // --- NAYA ACTIVE LINK WALA LOGIC ---
+        // 1. Sabhi links se 'active-link' class hata do
+        navLinks.forEach(l => l.classList.remove('active-link'));
+        
+        // 2. Sirf clicked wale link par 'active-link' class laga do
+        link.classList.add('active-link');
+        
+    });
+});
+
+</script>
 
 
 {% endblock %}
