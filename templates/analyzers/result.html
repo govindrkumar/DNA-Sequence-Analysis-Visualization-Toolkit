@@ -15,31 +15,146 @@
                 <a class="stats">Statistics</a>
                 <a class="translation">Translation</a>
                 <a class="orfs">ORFs</a>
-                <a class="comparison">Comparison</a>
-                <a class="history">History</a>
             </nav>
         </section>
 
         <!--Main Dashboard Section -->
         <div class="main-contention-area">
-            <div class="overview-class" id="card-1">Hello 1</div>
-            <div class="stats-class" id="card-2">Hello 2</div>
+            <div class="overview-class" id="card-1">
+                <div class="summary">
+                    <table>
+                        <tr>
+                            <th>Property</th>
+                            <th>Value</th>
+                        </tr>
+                        <tr>
+                            <td>Sequence ID</td>
+                            <td>{{record_id}}</td>
+                        </tr>
+                        <tr>
+                            <td>Sequence Description</td>
+                            <td>{{record_description}}</td>
+                        </tr>
+                        <tr>
+                            <td>Sequence Type</td>
+                            <td>{{sequence_type}}</td>
+                        </tr>
+                        <tr>
+                            <td>Sequence length</td>
+                            <td>{{gene_length}} bp</td>
+                        </tr>
+                    <tr>
+                        <td>GC Content</td>
+                        <td>{{gc_fraction}} %</td>
+                    </tr>
+                    <tr>
+                        <td>Molecular Weight</td>
+                        <td>{{mol_weight}}</td>
+                    </tr>
+                    <tr>
+                        <td>Melting Temperature</td>
+                        <td>{{tm}}</td>
+                    </tr>
+
+                    <tr>
+                        <td>Analysis Date</td>
+                        <td>{{analysis_date}}</td>
+                    </tr>
+                    </table>
+                </div>
+            </div>
+
+            <div class="stats-class" id="card-2">
+                <div class="base-count">
+                    <table>
+                        <h2>Statistics</h2>
+                        <tr>
+                            <th>Base</th>
+                            <th>Count</th>
+                            <th>Percentage</th>
+                        </tr>
+                        <tr>
+                            <td>A</td>
+                            <td>{{a_count}} bp</td>
+                            <td>{{a_perc}} %</td>
+                        </tr>
+                        <tr>
+                            <td>T</td>
+                            <td>{{t_count}} bp</td>
+                            <td>{{t_perc}} %</td>
+                        </tr>
+                        <tr>
+                            <td>G</td>
+                            <td>{{g_count}} bp</td>
+                            <td>{{g_perc}} %</td>
+                        </tr>
+                        <tr>
+                            <td>C</td>
+                            <td>{{c_count}} bp</td>
+                            <td>{{c_perc}} %</td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="comparison-image">
+                    <h2>AT vs GC (content)</h2><br><br>
+                    <img src="data:image/png;base64,{{ at_gc_chart }}">
+                    <img src="data:image/png;base64,{{ base_chart }}">
+                </div>
+
+                            
+            </div>
+
             <div class="translation-class" id="card-3">hello 3</div>
-            <div class="orf-class" id="card-4">Hello 4</div>
-            <div class="comparison-class" id="card-5">Hello 5</div>
-            <div class="history-class" id="card-6">Hello 6</div>
+
+
+            <div class="orf-class" id="card-4">
+                <h2 style="font-family: 'Times New Roman', Times, serif; font-weight: bold; font-style: normal;">
+                    Open Reading Frames (ORFs)
+                </h2>
+                <table>
+                    <tr>
+                        <th>Type</th>
+                        <th>Value</th>
+                    </tr>
+                    <tr>
+                        <td>ID</td>
+                        <td> {{record_id}} </td>
+                    </tr>
+                    <tr>
+                        <td>Protein Sequence</td>
+                        <td> {{ protein_seq }}</td>
+                    </tr>
+
+                    
+                </table>
+
+            </div>
+
+<!--Badd mein karunga yaar.....avi nhi!!-->
+            <div class="comparison-class" id="card-5">
+                <img src="{%static 'images/images.jpeg' %}" alt="Coming Soon" style="display: flex; justify-content: center; align-items: center;">
+            </div>
+            <div class="history-class" id="card-6">
+                <img src="{%static 'images/images.jpeg' %}" alt="Coming Soon" style="display: flex; justify-content: center; align-items: center;">
+
+            </div>
 
 
             
         </div>
+
+
+
+
     </div>
+
 
 <script>
         // 1. Saare navigation links ko select kiya
         const navLinks = document.querySelectorAll('.analyser-nav a');
 
         // 2. Saare content cards (divs) ko select kiya
-        const cards = document.querySelectorAll('.main-contention-area div');
+        const cards = document.querySelectorAll('.main-contention-area > div');
 
         // Default setup: Pehle card (Overview) ko chhod kar baaki sabko chhipa dete hain
         for (let i = 1; i < cards.length; i++) {
