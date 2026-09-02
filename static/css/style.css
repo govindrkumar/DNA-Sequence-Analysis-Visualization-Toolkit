@@ -4,9 +4,7 @@
     padding: 0;
     box-sizing: border-box;
 }
-.hidden {
-    display: none;
-}
+
 
 body {
     background-color: #f7fafc;
@@ -417,4 +415,27 @@ td {
 .orf-class td{
     word-break: break-all; overflow-wrap: break-word;
     width: 30%;
+}
+
+.translation-class{
+    display: grid;
+    grid-template-rows: auto auto auto;
+
+    background-color: #dd94d3;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    
+    margin: 40px auto;
+    padding: 30px;
+    border-radius: 15px;
+    word-break: break-all; 
+    overflow-wrap: break-word
+}
+
+.translation-class h1{
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bold;
+}
+
+.hidden {
+    display: none !important;
 }

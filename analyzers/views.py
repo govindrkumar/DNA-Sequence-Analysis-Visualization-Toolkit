@@ -101,6 +101,7 @@ def run_analysis(request, sequence_id):
 
     # Basic info
     analysis_date = date.today()
+    rna_seq = str(record.seq.transcribe())
     protein_seq = str(record.seq.translate())
 
     # Feature info
@@ -166,6 +167,7 @@ def run_analysis(request, sequence_id):
             'record_qualifiers': feature_qualifiers,
             'gc_fraction': round(gc, 2),
             'gene_length': length,
+            'rna_seq' : rna_seq,
             'protein_seq': protein_seq,
             'sequence_type': sequence_type,
             'analysis_date': analysis_date,

@@ -14,7 +14,7 @@
                 <a class="overview active-link">Overview</a>
                 <a class="stats">Statistics</a>
                 <a class="translation">Translation</a>
-                <a class="orfs">ORFs</a>
+                
             </nav>
         </section>
 
@@ -104,7 +104,30 @@
                             
             </div>
 
-            <div class="translation-class" id="card-3">hello 3</div>
+            <div class="translation-class" id="card-3">
+                <div class="dna">
+                    <h1>
+                        DNA
+                    </h1>
+                    <p>
+                        {{record_seq}}
+                    </p>
+                </div>
+                <div class="rna">
+                    <h1>
+                        RNA
+                    </h1>
+                    <p>
+                        {{rna_seq}}
+                    </p>
+                </div>
+                <div class="protein">
+                    <h1>
+                        Protein
+                    </h1>
+                    <p>{{protein_seq}}</p>
+                </div>
+            </div>
 
 
             <div class="orf-class" id="card-4">
@@ -130,7 +153,7 @@
 
             </div>
 
-<!--Badd mein karunga yaar.....avi nhi!!-->
+    <!--Badd mein karunga yaar.....avi nhi!!-->
             <div class="comparison-class" id="card-5">
                 <img src="{%static 'images/images.jpeg' %}" alt="Coming Soon" style="display: flex; justify-content: center; align-items: center;">
             </div>
@@ -150,49 +173,40 @@
 
 
 <script>
-        // 1. Saare navigation links ko select kiya
-        const navLinks = document.querySelectorAll('.analyser-nav a');
+document.addEventListener('DOMContentLoaded', () => {
 
-        // 2. Saare content cards (divs) ko select kiya
-        const cards = document.querySelectorAll('.main-contention-area > div');
+    const navLinks = document.querySelectorAll('.analyser-nav a');
+    const cards = document.querySelectorAll('.main-contention-area > div');
 
-        // Default setup: Pehle card (Overview) ko chhod kar baaki sabko chhipa dete hain
-        for (let i = 1; i < cards.length; i++) {
-            cards[i].classList.add('hidden');
+    // Initially hide every card except Overview
+    cards.forEach((card, index) => {
+        card.classList.toggle('hidden', index !== 0);
+    });
+
+    navLinks.forEach((link, index) => {
+        link.addEventListener('click', () => {
+
+            // Hide all cards
+            cards.forEach(card => {
+                card.classList.add('hidden');
+            });
+
+            // Show selected card
+            if (cards[index]) {
+                cards[index].classList.remove('hidden');
             }
 
-        // 3. Har ek nav link par click event lagana
-        navLinks.forEach((link, index) => {
-        link.addEventListener('click', () => {
-        
-        // 4. Sabse pehle SARE cards ko chhipa do (hidden class add karke)
-        cards.forEach(card => card.classList.add('hidden'));
-        
-        // 5. Ab sirf us card ko dikhao jiska index clicked link se match karta hai
-        cards[index].classList.remove('hidden');
-        
-    });
-});
+            // Update active navigation
+            navLinks.forEach(nav => {
+                nav.classList.remove('active-link');
+            });
 
-navLinks.forEach((link, index) => {
-    link.addEventListener('click', () => {
-        
-        // --- PURANA CARDS WALA LOGIC ---
-        cards.forEach(card => card.classList.add('hidden'));
-        cards[index].classList.remove('hidden');
-        
-        // --- NAYA ACTIVE LINK WALA LOGIC ---
-        // 1. Sabhi links se 'active-link' class hata do
-        navLinks.forEach(l => l.classList.remove('active-link'));
-        
-        // 2. Sirf clicked wale link par 'active-link' class laga do
-        link.classList.add('active-link');
-        
+            link.classList.add('active-link');
+        });
     });
-});
 
+});
 </script>
-
 
 {% endblock %}
 
