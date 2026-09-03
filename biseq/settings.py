@@ -113,7 +113,9 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
-
+CSRF_TRUSTED_ORIGINS = [
+    "https://dna-sequence-analysis-visualization-toolkit-production.up.railway.app",
+]
 
 # Internationalization
 # https://docs.djangoproject.com/en/5.2/topics/i18n/
