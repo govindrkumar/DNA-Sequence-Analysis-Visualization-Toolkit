@@ -29,7 +29,8 @@ ALLOWED_HOSTS = [
     "localhost",
     "127.0.0.1",
     "dna-sequence-analysis-visualization.vercel.app",
-    "govindrkumar.nest.hackclub.app"
+    "govindrkumar.nest.hackclub.app",
+    "dna-sequence-analysis-visualization-toolkit-production.up.railway.app"
 ]
 
 
