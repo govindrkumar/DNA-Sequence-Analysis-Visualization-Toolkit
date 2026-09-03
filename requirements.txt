@@ -10,3 +10,4 @@ matplotlib
 mysqlclient
 PyMySQL
 biopython
+gunicorn
