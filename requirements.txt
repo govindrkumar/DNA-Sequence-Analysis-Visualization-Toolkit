@@ -11,3 +11,4 @@ mysqlclient
 PyMySQL
 biopython
 gunicorn
+whitenoise
