@@ -8,6 +8,7 @@
 - Django
 - Cloud MySQL
 - Jinga2
+- Biopython 
 
 ## How to use ?
 - Upload your .fasta or .genbank file you have downloaded from NCBI website. 
