@@ -21,8 +21,6 @@
 - NCBI Blast
 
 ## Contribution
-No one helps single man 🥺😢😭
-
 Commit a PR and help me out grow features in this project. 
 
 <img width="480" height="270" alt="The Mentalist GIF" src="https://github.com/user-attachments/assets/99208ab8-5b9b-4186-bded-237e0711364a" />
