@@ -50,11 +50,11 @@ Commit a PR and help me out grow features in this project.
 
 ## License
 See the `LICENSE` file for license information.
-It is released under `Clause 3 BSD license`. So, I would request to all of you to push as much as commit you can and make our fellow developers work easier.
-
+It is released under `Clause 3 BSD license`. So, File is under public domain to improve it further. 
 
 ## One Last thing 
 If you really read this....
+
 Bye, Bye!
 Love you all!! 😘
 
