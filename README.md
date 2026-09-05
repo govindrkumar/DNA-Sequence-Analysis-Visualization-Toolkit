@@ -14,6 +14,15 @@
 - Upload your .fasta or .genbank file you have downloaded from NCBI website. 
 - Let it do his job.
 
+> ### ⚠️ Upload Size Limitation
+>
+> Please avoid uploading FASTA or GenBank files larger than **10 MB**.
+>
+> This project is currently hosted on a **free server with limited resources**, so processing very large sequence files may put excessive load on the server and can result in slow processing or failed requests.
+>
+> The **10 MB upload limit** is intended to keep the application responsive and stable for normal use.
+
+
 ## To Download your .fasta or .genbank file:
 ```
 https://www.ncbi.nlm.nih.gov/nuccore/
