@@ -24,5 +24,21 @@ class SupportTicketForm(forms.ModelForm):
             )
         }
 
+from django import forms
+
+
 class SequenceUploadForm(forms.Form):
+
     file = forms.FileField()
+
+    def clean_file(self):
+        uploaded_file = self.cleaned_data['file']
+
+        max_size = 25 * 1024 * 1024  # 25 MB
+
+        if uploaded_file.size > max_size:
+            raise forms.ValidationError(
+                "File is too large. Maximum allowed size is 25 MB."
+            )
+
+        return uploaded_file

@@ -31,6 +31,18 @@ def analyse_view(request):
         if form.is_valid():
             uploaded_file = form.cleaned_data['file']
 
+            max_size = 10 * 1024 * 1024  # 10 MB
+
+            if uploaded_file.size > max_size:
+                return render(
+                    request,
+                    "analyzers/analyse.html",
+                    {
+                        'form': form,
+                        'error': 'Please upload a file smaller than 10 MB.'
+                    }
+                )
+
             if uploaded_file.name.lower().endswith(('.gb', '.fasta')):
                 sequence = UploadedSequence.objects.create(
                     file=uploaded_file
@@ -39,6 +51,7 @@ def analyse_view(request):
                     'run_analysis',
                     sequence_id=sequence.id
                 )
+
     else:
         form = SequenceUploadForm()
 
@@ -47,7 +60,6 @@ def analyse_view(request):
         "analyzers/analyse.html",
         {'form': form}
     )
-
 
 def make_chart(xt, yt, xlabel, ylabel, title, color='teal'):
     """Helper function — chart banao aur base64 return karo"""

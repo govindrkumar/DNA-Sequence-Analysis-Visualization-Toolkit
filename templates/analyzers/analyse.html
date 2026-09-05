@@ -13,7 +13,7 @@
 
     <section class="main-sectionioning">
 
-        <form method="POST" enctype="multipart/form-data">
+        <form method="POST" enctype="multipart/form-data" id="upload-form">
             {% csrf_token %}
 
             <div class="upload-box">
@@ -37,9 +37,18 @@
 
             </div>
 
-            <button type="submit" class="submit-button">
+            {% if error %}
+                <p class="upload-error">{{ error }}</p>
+            {% endif %}
+
+            <button type="submit" class="submit-button" id="submit-button">
                 Submit
             </button>
+
+            <div id="upload-status" style="display: none;">
+                <p id="upload-text">Uploading... 0%</p>
+                <progress id="upload-progress" value="0" max="100"></progress>
+            </div>
 
         </form>
 
@@ -47,24 +56,154 @@
             const fileInput = document.getElementById("id_file");
             const fileName = document.getElementById("file-name");
 
-            fileInput.addEventListener("change", function () {
-            if (this.files.length > 0) {
-                fileName.textContent = this.files[0].name;
-                } else {
-                fileName.textContent = "No file selected";
-            }
-    });
-</script>
+            const uploadForm = document.getElementById("upload-form");
+            const uploadStatus = document.getElementById("upload-status");
+            const uploadProgress = document.getElementById("upload-progress");
+            const uploadText = document.getElementById("upload-text");
+            const submitButton = document.getElementById("submit-button");
 
-<style>
-    #file-name{
-        font-weight: bold;
-        color: black;
-    }
-</style>
+
+            // File name show karo
+            fileInput.addEventListener("change", function () {
+
+                if (this.files.length > 0) {
+                    fileName.textContent = this.files[0].name;
+                } else {
+                    fileName.textContent = "No file selected";
+                }
+
+            });
+
+
+            // Upload handle karo
+            uploadForm.addEventListener("submit", function (event) {
+
+                const file = fileInput.files[0];
+
+                // Maximum file size = 10 MB
+                const maxSize = 10 * 1024 * 1024;
+
+
+                // File size check
+                if (file && file.size > maxSize) {
+
+                    event.preventDefault();
+
+                    uploadStatus.style.display = "block";
+
+                    uploadProgress.value = 0;
+
+                    uploadText.textContent =
+                        "Please upload a file smaller than 10 MB.";
+
+                    submitButton.disabled = false;
+
+                    return;
+                }
+
+
+                // Normal upload start
+                event.preventDefault();
+
+                const xhr = new XMLHttpRequest();
+                const formData = new FormData(uploadForm);
+
+                uploadStatus.style.display = "block";
+
+                submitButton.disabled = true;
+
+                uploadProgress.value = 0;
+
+                uploadText.textContent = "Uploading... 0%";
+
+
+                // Upload progress
+                xhr.upload.addEventListener("progress", function (event) {
+
+                    if (event.lengthComputable) {
+
+                        const percent = Math.round(
+                            (event.loaded / event.total) * 100
+                        );
+
+                        uploadProgress.value = percent;
+
+                        uploadText.textContent =
+                            `Uploading... ${percent}%`;
+                    }
+
+                });
+
+
+                // Request complete
+                xhr.addEventListener("load", function () {
+
+                    if (xhr.status >= 200 && xhr.status < 300) {
+
+                        uploadProgress.value = 100;
+
+                        uploadText.textContent =
+                            "Upload complete! Processing sequence...";
+
+                        window.location.href = xhr.responseURL;
+
+                    } else {
+
+                        uploadText.textContent =
+                            "Upload failed. Please try again.";
+
+                        submitButton.disabled = false;
+                    }
+
+                });
+
+
+                // Network error
+                xhr.addEventListener("error", function () {
+
+                    uploadText.textContent =
+                        "Upload failed. Please check your connection.";
+
+                    submitButton.disabled = false;
+
+                });
+
+
+                // POST request
+                xhr.open("POST", uploadForm.action);
+
+                xhr.send(formData);
+
+            });
+        </script>
+
+
+        <style>
+
+            #file-name {
+                font-weight: bold;
+                color: black;
+            }
+
+            #upload-status {
+                margin-top: 20px;
+            }
+
+            #upload-progress {
+                width: 100%;
+            }
+
+            .upload-error {
+                margin-top: 10px;
+                font-weight: bold;
+                color: #d32f2f;
+            }
+
+        </style>
 
     </section>
 
 </div>
 
 {% endblock %}
+

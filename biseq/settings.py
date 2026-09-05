@@ -24,12 +24,12 @@ load_dotenv(BASE_DIR / ".env")
 SECRET_KEY = 'django-insecure-&fltwub_sv7@j!vg1hbk+&+5%&no+k#pbm)+dfn1@bb2jyw!&%'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 ALLOWED_HOSTS = [
     "localhost",
     "127.0.0.1",
     "dna-sequence-analysis-visualization.vercel.app",
-    "govindrkumar.nest.hackclub.app",
+    "govindrkumar.hackclub.app",
     "dna-sequence-analysis-visualization-toolkit-production.up.railway.app"
 ]
 
@@ -115,6 +115,7 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 CSRF_TRUSTED_ORIGINS = [
     "https://dna-sequence-analysis-visualization-toolkit-production.up.railway.app",
+    "https://govindrkumar.hackclub.app/"
 ]
 
 # Internationalization
