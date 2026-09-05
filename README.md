@@ -12,7 +12,20 @@
 
 ## How to use ?
 - Upload your .fasta or .genbank file you have downloaded from NCBI website. 
-- Let it do his job. 
+- Let it do his job.
+
+## To Download your .fasta or .genbank file:
+```
+https://www.ncbi.nlm.nih.gov/nuccore/
+```
+
+## Video showing use:
+
+
+
+https://github.com/user-attachments/assets/bef01971-9ce2-4af3-8aaa-81548c59f108
+
+
 
 ## Future Releases 
 - ORFs (Open Reading Frame)
